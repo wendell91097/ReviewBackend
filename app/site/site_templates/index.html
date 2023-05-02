@@ -2,31 +2,40 @@
 
 {% block content %}
 
-<section class="bg-primary text-light text-center shadow">
-    <div class="container p-5 bg-primary">
+<section class="bg-primary text-light shadow">
+    <div class="container p-5 pb-3 bg-primary">
         <div class="row">
-            <div class="d-md-flex bg-primary align-items-center justify-content-evenly">
-                <h1 class="col text-center"><br>Welcome!</h1>
+            <div class="d-md-flex bg-primary text-left">
+                <h1 class="col">Welcome!</h1>
             </div>
         </div>
     </div>
 </section>
-<section class="bg-light text-center">
+<section class="bg-light">
     <div class="container p-5">
         <div class="row">
             <div class="d-flex align-items-center justify-content-center">
                 {% if current_user.is_authenticated %}
-                
-                <h4>Way to be signed in!</h4>
-                <a href="{{ url_for('site.profile') }}">Profile Page</a>
-              
+                    <div class="col">
+                        <h4>Way to be signed in!</h4>
+                        <a href="{{ url_for('site.profile') }}">Profile Page</a>
+                    </div>
                 {% else %}
 
-                <h4>For returning users:</h4>
-                <a href="{{ url_for('auth.signin') }}">Log In</a>
-               
-                <h4>New to Owfs?</h4>
-                <a href="{{ url_for('auth.signup') }}">Log Up</a>
+                <div class="col justify-content-start text-left">
+                    <h4>For returning users:</h4>
+                    <a href="{{ url_for('auth.signin') }}">
+                        <button class="btn btn-primary my-3 px-3">
+                            Log In
+                        </button>
+                    </a>
+                    <h4>Are you new here?</h4>
+                    <a href="{{ url_for('auth.signup') }}">
+                        <button class="btn btn-primary my-3">
+                            Log Up
+                        </button> 
+                    </a>
+                </div>
              
                 {% endif %}
             </div>
