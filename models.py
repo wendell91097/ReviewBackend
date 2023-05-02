@@ -58,13 +58,12 @@ class Review(db.Model):
     date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
     user_token = db.Column(db.String, db.ForeignKey('user.token'), nullable = False)
 
-    def __init__(self,show,author,rating,review,date_created,user_token, id = ''):
+    def __init__(self,show,author,rating,review,user_token, id = ''):
         self.id = self.set_id()
         self.show = show
         self.author = author
         self.rating = rating
         self.review = review
-        self.date_created = date_created
         self.user_token = user_token
 
 
